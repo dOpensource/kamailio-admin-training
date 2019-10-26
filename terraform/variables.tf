@@ -1,34 +1,41 @@
+# Digital Ocean Token 
 variable "do_token" {
 }
 
+# Optional Prepfix for the workshop
 variable "prefix" {
 	default =""
 }
 
+# The private key being used to connect to the VM to provision them
 variable "pvt_key" {
   default = "~/.ssh/dopensource-training"
 }
 
-variable "dropletname" {
+# The name of the Kamailio Instances
+variable "kamailio-dropletname" {
   default = "kamailio"
 }
 
+# The name ofthe FusionPBX Instances
 variable "fusionpbx-dropletname" {
   default = "fusionpbx"
 }
 
-variable "number_of_servers" {
+# The Number of Environments to Deploy
+variable "number_of_environments" {
   default = "1"
 }
 
+# The domainname to use when setting up DNS
 variable "domainname" {
   default = "dopensource.net"
 }
 
-variable "repo" {
-	default="https://github.com/detroitblacktech/webportal.git"
+# The name of the GIT repo that contains the labs
+# By default, the labs are in the same repo as this Terraform script
+# But, doesn't have to be
+variable "training-repo" {
+	default="https://github.com/dOpensource/kamailio-admin-training.git"
 }
 
-variable "branch" {
-	default="dev"
-}

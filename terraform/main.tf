@@ -9,8 +9,8 @@ data "digitalocean_ssh_key" "ssh_key" {
 
 
 resource "digitalocean_droplet" "kamailio-server" {
-        name = "${var.dropletname}${count.index}"
-        count = "${var.number_of_servers}"
+        name = "${var.kamailio-dropletname}${count.index}"
+        count = "${var.number_of_environments}"
         region = "nyc1"
         size="1gb"
         image="debian-9-x64"
@@ -32,7 +32,7 @@ resource "digitalocean_droplet" "kamailio-server" {
           "sleep 20",
           "cd ~/bits",
 	  "git clone --depth 1 --no-single-branch https://github.com/kamailio/kamailio -b 5.3 kamailio",
-	  "cd ~/;git clone https://github.com/dOpensource/kamailio-admin-training",
+	  "cd ~/;git clone ${var.training-repo}",
           "sleep 20",
           "sed -i 's/\"set background=dark/set background=dark/' /etc/vim/vimrc"
         ]
@@ -42,7 +42,7 @@ resource "digitalocean_droplet" "kamailio-server" {
 
 resource "digitalocean_droplet" "fusionpbx" {
         name = "${var.fusionpbx-dropletname}${count.index}"
-        count = "${var.number_of_servers}"
+        count = "${var.number_of_environments}"
         region = "nyc1"
         size="1gb"
         image="debian-9-x64"
