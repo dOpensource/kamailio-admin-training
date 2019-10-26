@@ -11,10 +11,10 @@ but you can get more information about the class from here: http://dopensource.c
 
 The goal of this repo is to empower more people to learn about Terraform, which is a tool to realize the vision of Infrastructure as Code (IaC) with a focus on VoIP 
 This means that you can use code to provision (aka setup) new infrastrature and destroy it once you are done using it.  You can do this over and over again.
-This is very useful when you are setting up lab environments for classes or workshops.  So, we hope this will spark iterest and will cause people to contribute to
+This is very useful when you are setting up lab environments for classes or workshops.  So, we hope this will spark interest and will cause people to contribute to
 make it better and add other Cloud Providers.  
 
-## Instructions for Provioning the Environment
+## Instructions for Provisioning the Environment
 
 1. Setup a Digital Ocean account and obtain an API token.  Save the token somehwere safe.  Treat the token like a password.
 
@@ -43,8 +43,11 @@ terraform -var do_token=$DIGITALOCEAN_TOKEN apply
 Note, by default it will deploy one lab environment, which includes 2 Virtual Machines with Debian 9 Stretch installed.  One Virtual Machine will be install with 
 all of the required libraries needed to install Kamailio from source.  The other Virtual Machine will install FusionPBX automatically during the provisioning process.  
 
-Set the num_of_envivronments variable if you want to provision multiple servers
+Set the num_of_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
 
+```
+terraform -var do_token=$DIGITALOCEAN_TOKEN -var num_of_environments=<number goes here> apply
+```
 
 ## Notes about the labs
 
