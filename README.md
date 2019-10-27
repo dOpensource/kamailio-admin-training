@@ -16,15 +16,21 @@ make it better and add other Cloud Providers.
 
 ## Instructions for Provisioning the Environment
 
-1. Setup a Digital Ocean account and obtain an API token.  Save the token somehwere safe.  Treat the token like a password.
+1. Setup a Digital Ocean account and obtain an API token.  Save the token somewhere safe.  Treat the token like a password.
 
 2. Download Terraform from https://www.terraform.io/downloads.html
+
+4. Create a new ssh-key that can be used to connect to the instances
+
+```
+ssh-keygen -f <file location to place the newly generated key>
+```
 
 3. Execute the following:
 
 ```
 terraform init
-terraform apply -var do_token="Digital Ocean Token"
+terraform apply -var do_token="Digital Ocean Token" -var pvt_key="location of the key"
 ```
 
 I usually put the Digital Ocean Token in an environment variable and then execute Terraform like this:
@@ -34,7 +40,7 @@ Note: the token below is not real.  Just trying to show an example :-/
 ```
 DIGITALOCEAN_TOKEN="34950239605awjjgwqj2tlgljl2rntkgnnlnrtl2n"
 terraform init
-terraform -var do_token=$DIGITALOCEAN_TOKEN apply
+terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" apply
 ```
 
 4. Enter "yes" to the start the provisioning process
@@ -46,7 +52,7 @@ all of the required libraries needed to install Kamailio from source.  The other
 Set the num_of_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
 
 ```
-terraform -var do_token=$DIGITALOCEAN_TOKEN -var num_of_environments=<number goes here> apply
+terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" -var num_of_environments=<number goes here> apply
 ```
 
 ## Notes about the labs
