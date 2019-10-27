@@ -20,15 +20,19 @@ make it better and add other Cloud Providers.
 
 2. Download Terraform from https://www.terraform.io/downloads.html
 
-4. Create a new ssh-key that can be used to connect to the instances
+3. Create a new ssh-key that can be used to connect to the instances
 
 ```
-ssh-keygen -f <file location to place the newly generated key>
+ssh-keygen -f <file location to place the newly generated keypair>
 ```
 
-3. Execute the following:
+4. Upload the public key to Digtial Ocean.  Terraform will use the private key to install software on the VM's during the provisioning phase and you 
+can connect to the VM's via SSH using the private key. 
+
+5. Execute the following:
 
 ```
+cd terraform
 terraform init
 terraform apply -var do_token="Digital Ocean Token" -var pvt_key="location of the key"
 ```
@@ -39,11 +43,12 @@ Note: the token below is not real.  Just trying to show an example :-/
 
 ```
 DIGITALOCEAN_TOKEN="34950239605awjjgwqj2tlgljl2rntkgnnlnrtl2n"
+cd terraform
 terraform init
-terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" apply
+terraform apply -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" 
 ```
 
-4. Enter "yes" to the start the provisioning process
+6. Enter "yes" to the start the provisioning process
 
 
 Note, by default it will deploy one lab environment, which includes 2 Virtual Machines with Debian 9 Stretch installed.  One Virtual Machine will be install with 
