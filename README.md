@@ -1,4 +1,4 @@
-# Kamailio Training with FusionPBX: Using Kamailio as a Registrar
+# Kamailio Admin Training: Using Kamailio as a Registrar for FusionPBX
 
 The focus on the training is provide attendees with an overall understanding of Kamailio 5.3 with hands on labs
 that gives attendees experience with configuing Kamailio as a Registrar Server for FusionPBX
