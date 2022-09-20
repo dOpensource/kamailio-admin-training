@@ -1,3 +1,13 @@
+terraform {
+  required_providers {
+    digitalocean = {
+      source = "digitalocean/digitalocean"
+      version = "2.17.0"
+    }
+  }
+}
+
+
 provider "digitalocean" {
     token = "${var.do_token}"
 }
@@ -17,10 +27,11 @@ resource "digitalocean_droplet" "kamailio-lab-training-server" {
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
-        user = "root"
-        type = "ssh"
-        private_key = "${file(var.pvt_key)}"
-        timeout = "5m"
+          host = self.ipv4_address
+          user = "root"
+          type = "ssh"
+          private_key = "${file(var.pvt_key)}"
+          timeout = "5m"
         }
 
         provisioner "remote-exec" {
@@ -49,10 +60,11 @@ resource "digitalocean_droplet" "fusionpbx-lab-training" {
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
-        user = "root"
-        type = "ssh"
-        private_key = "${file(var.pvt_key)}"
-        timeout = "15m"
+          host = self.ipv4_address
+          user = "root"
+          type = "ssh"
+          private_key = "${file(var.pvt_key)}"
+          timeout = "15m"
         }
 
         provisioner "remote-exec" {
