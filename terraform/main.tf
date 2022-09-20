@@ -28,7 +28,7 @@ resource "digitalocean_droplet" "kamailio-lab-training-server" {
           "export PATH=$PATH:/usr/bin",
           # install git repo and and server up the index page
           "sudo mkdir -p ~/bits/kamailio",
-          "sudo apt-get update; sudo apt-get install -y git sngrep gcc g++ pkg-config libxml2-dev libssl-dev libcurl4-openssl-dev libpcre3-dev flex bison default-libmysqlclient-dev make autoconf  sudo apt install postgresql libpq5 libpq-dev",
+          "sudo apt-get update; sudo apt-get install -y git sngrep gcc g++ pkg-config libxml2-dev libssl-dev libcurl4-openssl-dev libpcre3-dev flex bison make autoconf  postgresql libpq5 libpq-dev",
           "sleep 20",
           "cd ~/bits",
           "git clone --depth 1 --no-single-branch https://github.com/kamailio/kamailio -b 5.3 kamailio",
