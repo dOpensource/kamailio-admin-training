@@ -14,12 +14,12 @@ variable "pvt_key" {
 
 # The name of the Kamailio Instances
 variable "kamailio-dropletname" {
-  default = "kamailio"
+  default = "kamailio-lab-training"
 }
 
 # The name ofthe FusionPBX Instances
 variable "fusionpbx-dropletname" {
-  default = "fusionpbx"
+  default = "fusionpbx-lab-training"
 }
 
 # The Number of Environments to Deploy

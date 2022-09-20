@@ -8,12 +8,12 @@ data "digitalocean_ssh_key" "ssh_key" {
 }
 
 
-resource "digitalocean_droplet" "kamailio-server" {
+resource "digitalocean_droplet" "kamailio-lab-training-server" {
         name = "${var.kamailio-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
         size="1gb"
-        image="debian-9-x64"
+        image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
@@ -28,11 +28,11 @@ resource "digitalocean_droplet" "kamailio-server" {
           "export PATH=$PATH:/usr/bin",
           # install git repo and and server up the index page
           "sudo mkdir -p ~/bits/kamailio",
-          "sudo apt-get update; sudo apt-get install -y git sngrep gcc g++ pkg-config libxml2-dev libssl-dev libcurl4-openssl-dev libpcre3-dev flex bison default-libmysqlclient-dev make autoconf mariadb-server",
+          "sudo apt-get update; sudo apt-get install -y git sngrep gcc g++ pkg-config libxml2-dev libssl-dev libcurl4-openssl-dev libpcre3-dev flex bison default-libmysqlclient-dev make autoconf  sudo apt install postgresql libpq5 libpq-dev",
           "sleep 20",
           "cd ~/bits",
-	  "git clone --depth 1 --no-single-branch https://github.com/kamailio/kamailio -b 5.3 kamailio",
-	  "cd ~/;git clone ${var.training-repo}",
+          "git clone --depth 1 --no-single-branch https://github.com/kamailio/kamailio -b 5.3 kamailio",
+          "cd ~/;git clone ${var.training-repo}",
           "sleep 20",
           "sed -i 's/\"set background=dark/set background=dark/' /etc/vim/vimrc"
         ]
@@ -40,12 +40,12 @@ resource "digitalocean_droplet" "kamailio-server" {
       }
 }
 
-resource "digitalocean_droplet" "fusionpbx" {
+resource "digitalocean_droplet" "fusionpbx-lab-training" {
         name = "${var.fusionpbx-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
         size="1gb"
-        image="debian-9-x64"
+        image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
