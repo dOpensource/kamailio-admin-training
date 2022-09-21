@@ -18,7 +18,7 @@ data "digitalocean_ssh_key" "ssh_key" {
 }
 
 
-resource "digitalocean_droplet" "kamailio-lab-training-server" {
+resource "digitalocean_droplet" "kamailio-lab-training" {
         name = "${var.kamailio-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
