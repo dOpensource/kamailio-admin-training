@@ -22,8 +22,8 @@ resource "digitalocean_droplet" "kamailio-lab-training-server" {
         name = "${var.kamailio-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
-        size="1gb"
-        image="debian-11-x64"
+        size="2gb"
+        image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
@@ -56,7 +56,7 @@ resource "digitalocean_droplet" "fusionpbx-lab-training" {
         count = "${var.number_of_environments}"
         region = "nyc1"
         size="1gb"
-        image="debian-11-x64"
+        image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
         connection {
