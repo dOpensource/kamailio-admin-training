@@ -2,7 +2,7 @@ terraform {
   required_providers {
     digitalocean = {
       source = "digitalocean/digitalocean"
-      version = "2.17.0"
+      version = "2.19.0"
     }
   }
 }
@@ -22,7 +22,7 @@ resource "digitalocean_droplet" "kamailio-lab-training" {
         name = "${var.kamailio-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
-        size="2gb"
+        size="s-1vcpu-1gb"
         image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
@@ -55,7 +55,7 @@ resource "digitalocean_droplet" "fusionpbx-lab-training" {
         name = "${var.fusionpbx-dropletname}${count.index}"
         count = "${var.number_of_environments}"
         region = "nyc1"
-        size="1gb"
+        size="s-1vcpu-1gb"
         image="debian-10-x64"
 	      ssh_keys = [ "${data.digitalocean_ssh_key.ssh_key.fingerprint}" ]
 
