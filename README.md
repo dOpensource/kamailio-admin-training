@@ -1,15 +1,15 @@
-# Kamailio Admin Training: Using Kamailio as a Registrar for FusionPBX
+# Kamailio Install, Configuration and Admin Course & Kamailio High Availablility Course 
 
-The focus on the training is provide attendees with an overall understanding of Kamailio 5.3 with hands on labs
-that gives attendees experience with configuing Kamailio as a Registrar Server for FusionPBX
+The focus on the training is provide attendees with an overall understanding of Kamailio with hands on labs
+that gives attendees experience with installing, configuring and managing Kamailio
 
-This repo contains Terraform scripts that will spin up a server ready to install Kamailio 5.3 and a server instance with 
-FusionPBX already installed ready to be used in the class.
+This repo contains Terraform scripts that will spin up a server ready to install Kamailio and a server instance with 
+FusionPBX already installed ready to be used in the course
 
 We also provide the completed Kamailio configurations for the different labs.  The class material and labs are not provided in this repo,
 but you can get more information about the class from here: http://dopensource.com/kamailio-training/  
 
-The goal of this repo is to empower more people to learn about Terraform, which is a tool to realize the vision of Infrastructure as Code (IaC) with a focus on VoIP 
+One of the goals of this repo is to empower more people to learn about Terraform, which is a tool to realize the vision of Infrastructure as Code (IaC) with a focus on VoIP 
 This means that you can use code to provision (aka setup) new infrastrature and destroy it once you are done using it.  You can do this over and over again.
 This is very useful when you are setting up lab environments for classes or workshops.  So, we hope this will spark interest and will cause people to contribute to
 make it better and add other Cloud Providers.  
@@ -72,4 +72,3 @@ You can make the Kamailio file active by changing into one of the lab directorie
 ln -s $PWD/kamailio.cfg /etc/kamailio/kamailio.cfg
 ```
 
-]
