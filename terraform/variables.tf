@@ -37,6 +37,11 @@ variable "number_of_secondary_environments" {
   default = "0"
 }
 
+# The Number of FusionPBX Environments to Deploy
+variable "number_of_fusionpbx_environments" {
+  default = "1"
+}
+
 # The Number of Shared Services to Deploy
 variable "number_of_shared_environments" {
   default = "1"

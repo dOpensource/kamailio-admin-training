@@ -86,7 +86,7 @@ resource "digitalocean_droplet" "secondary-kamailio" {
 
 resource "digitalocean_droplet" "fusionpbx" {
         name = "${var.fusionpbx-dropletname}${count.index}"
-        count = "${var.number_of_primary_environments}"
+        count = "${var.number_of_fusionpbx_environments}"
         region = "nyc1"
         size="s-1vcpu-1gb"
         image="debian-10-x64"
