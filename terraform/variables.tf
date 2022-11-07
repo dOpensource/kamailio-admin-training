@@ -12,18 +12,33 @@ variable "pvt_key" {
   default = "~/.ssh/dopensource-training"
 }
 
-# The name of the Kamailio Instances
-variable "kamailio-dropletname" {
-  default = "kamailio-lab-training"
+# The name of the Primary Kamailio Instances
+variable "primary-kamailio-dropletname" {
+  default = "pkam"
+}
+
+# The name of the Primary Kamailio Instances
+variable "secondary-kamailio-dropletname" {
+  default = "skam"
 }
 
 # The name ofthe FusionPBX Instances
 variable "fusionpbx-dropletname" {
-  default = "fusionpbx-lab-training"
+  default = "fusionpbx"
 }
 
 # The Number of Environments to Deploy
-variable "number_of_environments" {
+variable "number_of_primary_environments" {
+  default = "1"
+}
+
+# The Number of Environments to Deploy
+variable "number_of_secondary_environments" {
+  default = "0"
+}
+
+# The Number of Shared Services to Deploy
+variable "number_of_shared_environments" {
   default = "1"
 }
 
