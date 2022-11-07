@@ -51,13 +51,13 @@ terraform apply -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensour
 6. Enter "yes" to the start the provisioning process
 
 
-Note, by default it will deploy one lab environment, which includes 2 Virtual Machines with Debian 9 Stretch installed.  One Virtual Machine will be install with 
-all of the required libraries needed to install Kamailio from source.  The other Virtual Machine will install FusionPBX automatically during the provisioning process.  
+Note, by default it will deploy one lab environment, which includes 2 Virtual Machines with Debian 11 installed.  One Virtual Machine will be install with 
+all of the required libraries needed to install Kamailio from packages.  The other Virtual Machine will install FusionPBX automatically during the provisioning process.  
 
-Set the num_of_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
+Set the num_of_primary_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
 
 ```
-terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" -var num_of_environments=<number goes here> apply
+terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" -var num_of_primary_environments=<number goes here> apply
 ```
 
 ## Notes about the labs
@@ -69,7 +69,7 @@ Each directory contains commands for the labs or a completed Kamailio configurat
 You can make the Kamailio file active by changing into one of the lab directories and activing the following command
 
 ```
-ln -s $PWD/kamailio.cfg /usr/local/etc/kamailio/kamailio.cf
+ln -s $PWD/kamailio.cfg /etc/kamailio/kamailio.cfg
 ```
 
-Note, Kamailio will be installed in the /usr/local directory
+]
