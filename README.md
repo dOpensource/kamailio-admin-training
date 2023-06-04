@@ -54,10 +54,10 @@ terraform apply -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensour
 Note, by default it will deploy one lab environment, which includes 2 Virtual Machines with Debian 11 installed.  One Virtual Machine will be install with 
 all of the required libraries needed to install Kamailio from packages.  The other Virtual Machine will install FusionPBX automatically during the provisioning process.  
 
-Set the num_of_primary_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
+Set the number_of_primary_envivronments variable if you want to provision multiple servers.  The apply statement will look like this:
 
 ```
-terraform -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" -var num_of_primary_environments=<number goes here> apply
+terraform apply -var do_token=$DIGITALOCEAN_TOKEN -var pvt_key="~/.ssh/dopensource-training" -var number_of_primary_environments=<number goes here> 
 ```
 
 ## Notes about the labs
